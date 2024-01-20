@@ -1,0 +1,56 @@
+settings:
+  logging: info ## Log verbosity <debug, info (default), warn, error>
+  tags: ## List of tags you want to appear in notifications for identification purposes
+    - production
+    - example one
+  exclusions: ## the name of any actors (containers, networks etc) you want to exclude from alerts
+    - test1
+
+events: ## The Docker event types that you want to trigger alerts for
+  container: 
+    - health_status
+    - oom
+    - destroy
+    - create
+    - stop
+    - kill
+    - die
+    - restart
+    - start
+  image: 
+    - delete
+  plugin:
+    - install
+    - remove
+  volume: 
+    - destroy
+    - create
+  network:
+    - destroy
+  daemon:
+    - reload
+  service:
+    - remove
+  node:
+    - remove
+  secret:
+    - remove
+  config:
+    - remove
+
+integrations: ## Available integrations  
+  slack:
+    enabled: True
+    url:  https://hooks.slack.com/services/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
+  # sparkpost:
+  #   enabled: True
+  #   url: https://api.eu.sparkpost.com/api/v1/transmissions
+  #   key: your_key
+  #   from: dem@dkrmon.io
+  #   subject: Docker Event Monitor
+  #   recipients:
+  #     - john.smith@example.com
+  #     - mary.collins@example.com
+  # discord:
+  #   enabled: True
+  #   url: https://discordapp.com/api/webhooks/<your_uuid>
