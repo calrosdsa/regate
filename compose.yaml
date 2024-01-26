@@ -3,7 +3,7 @@ version: '3'
 services:
   
   admin:
-    image: jmiranda0521/regate-admin:1
+    image: jmiranda0521/regate-admin:1.1
     container_name: admin
     restart: unless-stopped
     # volumes:
@@ -11,7 +11,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - frontnet  
+      # - frontnet  
       - backnet 
   regate:
     container_name: regate
@@ -38,7 +38,7 @@ services:
       - COLLECTOR_OTLP_ENABLED=true
     networks:
       - backnet  
-      - frontnet
+      # - frontnet
     
   
 
@@ -159,7 +159,7 @@ volumes:
 
 networks:
   backnet:
-  frontnet:
+  # frontnet:
   # external:
     # driver: host
     # external: true  
