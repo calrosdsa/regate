@@ -3,8 +3,9 @@ version: '3'
 services:
   
   admin:
-    image: jmiranda0521/regate-admin
+    image: jmiranda0521/regate-admin:1
     container_name: admin
+    restart: unless-stopped
     # volumes:
     #   - ./regate-admin/.env:/my-space/.env
     # ports:
@@ -14,7 +15,7 @@ services:
       - backnet 
   regate:
     container_name: regate
-    image: jmiranda0521/r_backend:1.4
+    image: jmiranda0521/r_backend:latest
     restart: unless-stopped
     ports:
       - "90:90"
