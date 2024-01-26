@@ -20,11 +20,12 @@ services:
       # - "90:90"
       - "2112:2112"
     volumes:
-    - ./r_backend/app/config.json:/app/config.json  
+    - ./config/config.json:/app/config.json  
     networks:
       - backnet  
   
   jaeger:
+    container_name: jaeger
     image: jaegertracing/all-in-one:${JAEGER_VERSION:-latest}
     ports:
       - "16686:16686"

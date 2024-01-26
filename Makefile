@@ -11,6 +11,20 @@ build_regate_admin: ## Visualización de redis
 	docker build -t jmiranda0521/regate-admin:$(R_ADMIN_VERSION) ./regate-admin/.
 	docker push jmiranda0521/regate-admin:$(R_ADMIN_VERSION)
 
+
+build_push_to_github: ## Visualización de redis
+	@echo 'Imágenes de docker TAG=$(REDIS_TAG)'
+    git add ./r_backend/.
+	git commit -m "changes"
+	git push -u origin main
+
+
+# git add ./regate-admin/.
+# git commit -m "changes"
+# git push -u origin main
+
+	
+
 # build_monitor: ## Construcción del monitor
 # 	@echo 'Contenedores en ejecución'
 # 	docker ps -a 
