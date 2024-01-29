@@ -1,0 +1,6 @@
+time="2024-01-29T06:15:22-06:00" level=error msg="redis: all ring shards are down" file=instalacion_a_ucase.go method=GetInstalaciones_c
+time="2024-01-29T06:15:22-06:00" level=error msg="redis: all ring shards are down" file=instalacion_a_ucase.go method=GetInstalacion_c
+time="2024-01-29T06:17:18-06:00" level=error msg="redis: all ring shards are down" file=instalacion_a_ucase.go method=GetEstablecimientosUser_c
+time="2024-01-29T06:17:18-06:00" level=error msg="sql: Scan error on column index 2, name \"photo\": converting NULL to string is unsupported" file=establecimiento_usecase method=GetEstablecimientoPhotos
+time="2024-01-29T06:17:20-06:00" level=error msg="redis: all ring shards are down" file=instalacion_a_ucase.go method=GetInstalaciones_c
+time="2024-01-29T06:17:20-06:00" level=error msg="redis: all ring shards are down" file=instalacion_a_ucase.go method=GetInstalacion_c
