@@ -13,6 +13,17 @@ services:
     networks:
       # - frontnet  
       - backnet 
+  core-admin:
+    image: jmiranda0521/core-admin:1.0
+    container_name: core-admin
+    # restart: unless-stopped
+    # volumes:
+    #   - ./regate-admin/.env:/my-space/.env
+    ports:
+      - "3001:3001"
+    networks:
+      # - frontnet  
+      - backnet 
   regate:
     container_name: regate
     image: jmiranda0521/r_backend:1.8
@@ -27,8 +38,8 @@ services:
     - ./app/.bin:/app/.bin
     networks:
       - backnet  
-  regate_core:
-    container_name: regate_core
+  core:
+    container_name: core
     image: jmiranda0521/r_core:1.0
     restart: unless-stopped
     ports:
