@@ -22,6 +22,7 @@ services:
     container_name: regate
     image: jmiranda0521/r_backend:1.8
     restart: unless-stopped
+    privileged: true
     ports:
       - "90:90"
       - "2112:2112"
@@ -36,6 +37,7 @@ services:
     container_name: core
     image: jmiranda0521/r_core:1.1
     restart: unless-stopped
+    privileged: true
     ports:
       - "91:91"
     volumes:
@@ -81,6 +83,7 @@ services:
   prometheus:
     image: prom/prometheus
     container_name: prometheus
+    privileged: true
     ports:
       - "9090:9090"
     volumes:
@@ -118,6 +121,7 @@ services:
     ports:
       - "3030:3030"
     restart: unless-stopped   
+    privileged: true
     volumes:
       - ./monitor/grafana/grafana.ini:/etc/grafana/grafana.ini 
       - ./monitor/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
@@ -128,6 +132,7 @@ services:
 
   dme:
     image: quaide/dem
+    privileged: true
     volumes:
       - ./monitor/dme/conf.yml:/app/conf.yml    
       - /var/run/docker.sock:/var/run/docker.sock
