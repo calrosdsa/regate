@@ -1,0 +1,1 @@
+time="2024-03-05T09:42:52-06:00" level=error msg="las credenciales introducidas son incorrectas. Por favor, verifica tu correo electrónico y contraseña e inténtalo nuevamente" file=account_a_usecase.go method=Login

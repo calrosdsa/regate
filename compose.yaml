@@ -3,9 +3,9 @@ version: '3'
 services:
   
   admin:
-    image: jmiranda0521/regate-admin:1.6
+    image: jmiranda0521/regate-admin:2.4
     container_name: admin
-    # restart: unless-stopped
+    restart: unless-stopped
     # volumes:
     #   - ./regate-admin/.env:/my-space/.env
     ports:
@@ -14,13 +14,13 @@ services:
       # - frontnet  
       - backnet 
   core-admin:
-    image: jmiranda0521/core-admin:1.0
+    image: jmiranda0521/core-admin:1.3
     container_name: core-admin
-    # restart: unless-stopped
+    restart: unless-stopped
     # volumes:
     #   - ./regate-admin/.env:/my-space/.env
     ports:
-      - "3001:3001"
+      - "3001:3000"
     networks:
       # - frontnet  
       - backnet 
