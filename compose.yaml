@@ -33,18 +33,18 @@ services:
     - ./app/.bin:/home/app/.bin
     networks:
       - backnet  
-  core:
-    container_name: core
-    image: jmiranda0521/r_core:1.1
-    restart: unless-stopped
-    privileged: true
-    ports:
-      - "91:91"
-    volumes:
-    - ./config/config.json:/app/config.json  
-    - ./app/log:/app/log  
-    networks:
-      - backnet  
+  # core:
+  #   container_name: core
+  #   image: jmiranda0521/r_core:1.1
+  #   restart: unless-stopped
+  #   privileged: true
+  #   ports:
+  #     - "91:91"
+  #   volumes:
+  #   - ./config/config.json:/app/config.json  
+  #   - ./app/log:/app/log  
+  #   networks:
+  #     - backnet  
   
   jaeger:
     container_name: jaeger
@@ -104,14 +104,14 @@ services:
    
  
 
-  redis:
-    image: redis
-    container_name: redis
-    ports:
-      - "6379:6379"
-    restart: unless-stopped
-    networks:
-      - backnet  
+  # redis:
+  #   image: redis
+  #   container_name: redis
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
+  #   networks:
+  #     - backnet  
    
   
       
