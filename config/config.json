@@ -7,6 +7,9 @@
   "context":{
     "timeout":2
   },
+  "redis":{
+    "node1":"redis:6379"
+  },
   "database": {
       "host": "10.0.0.132",  
       "port": 5432,

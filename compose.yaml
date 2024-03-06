@@ -21,8 +21,8 @@ services:
   regate:
     container_name: regate
     image: jmiranda0521/r_backend:1.9
+    command: /bin/sh -c "/home/app/engine && chmod +x /home/app/.bin/webp/cwebp"
     restart: unless-stopped
-    privileged: true
     ports:
       - "90:90"
       - "2112:2112"
@@ -37,7 +37,6 @@ services:
     container_name: core
     image: jmiranda0521/r_core:1.1
     restart: unless-stopped
-    privileged: true
     ports:
       - "91:91"
     volumes:
@@ -48,20 +47,20 @@ services:
   
 
 
-  # jaeger:
-  #   container_name: jaeger
-  #   image: jaegertracing/all-in-one
-  #   ports:
-  #     - "16686:16686"
-  #     - '6831:6831'
-  #     - "4317:4317"
-  #     - "4318:4318"
-  #   environment:
-  #     - LOG_LEVEL=debug
-  #     - COLLECTOR_OTLP_ENABLED=true
-  #   networks:
-  #     - backnet  
-  #     # - frontnet
+  jaeger:
+    container_name: jaeger
+    image: jaegertracing/all-in-one
+    ports:
+      - "16686:16686"
+      - '6831:6831'
+      - "4317:4317"
+      - "4318:4318"
+    environment:
+      - LOG_LEVEL=debug
+      - COLLECTOR_OTLP_ENABLED=true
+    networks:
+      - backnet  
+      # - frontnet
     
   
 
@@ -106,14 +105,14 @@ services:
    
  
 
-  # redis:
-  #   image: redis
-  #   container_name: redis
-  #   ports:
-  #     - "6379:6379"
-  #   restart: unless-stopped
-  #   networks:
-  #     - backnet  
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - backnet  
    
   
       
