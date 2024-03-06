@@ -1,0 +1,1 @@
+time="2024-03-06T08:52:00-06:00" level=error msg="redis: all ring shards are down" file=instalacion_a_ucase.go method=GetEstablecimientosUser_c
