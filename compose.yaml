@@ -20,17 +20,17 @@ services:
       - backnet 
   regate:
     container_name: regate
-    image: jmiranda0521/r_backend:1.8
+    image: jmiranda0521/r_backend:1.9
     restart: unless-stopped
     privileged: true
     ports:
       - "90:90"
       - "2112:2112"
     volumes:
-    - ./config/config.json:/app/config.json  
-    - ./app/log:/app/log  
-    - ./app/email-templates:/app/email-templates
-    - ./app/.bin:/app/.bin
+    - ./config/config.json:/home/app/config.json  
+    - ./app/log:/home/app/log  
+    - ./app/email-templates:/home/app/email-templates
+    - ./app/.bin:/home/app/.bin
     networks:
       - backnet  
   core:
