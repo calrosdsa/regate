@@ -48,96 +48,96 @@ services:
   
 
 
-  jaeger:
-    container_name: jaeger
-    image: jaegertracing/all-in-one
-    ports:
-      - "16686:16686"
-      - '6831:6831'
-      - "4317:4317"
-      - "4318:4318"
-    environment:
-      - LOG_LEVEL=debug
-      - COLLECTOR_OTLP_ENABLED=true
-    networks:
-      - backnet  
-      # - frontnet
+  # jaeger:
+  #   container_name: jaeger
+  #   image: jaegertracing/all-in-one
+  #   ports:
+  #     - "16686:16686"
+  #     - '6831:6831'
+  #     - "4317:4317"
+  #     - "4318:4318"
+  #   environment:
+  #     - LOG_LEVEL=debug
+  #     - COLLECTOR_OTLP_ENABLED=true
+  #   networks:
+  #     - backnet  
+  #     # - frontnet
     
   
 
-    # networks:
-      # - jaeger-example
-  cadvisor:
-    image: google/cadvisor:latest
-    container_name: cadvisor
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro    
-    networks:
-      - backnet  
+  #   # networks:
+  #     # - jaeger-example
+  # cadvisor:
+  #   image: google/cadvisor:latest
+  #   container_name: cadvisor
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     - /:/rootfs:ro
+  #     - /var/run:/var/run:rw
+  #     - /sys:/sys:ro
+  #     - /var/lib/docker/:/var/lib/docker:ro    
+  #   networks:
+  #     - backnet  
    
   
-  prometheus:
-    image: prom/prometheus
-    container_name: prometheus
-    privileged: true
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./monitor/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      # - ./monitor/prometheus/rules.yml:/etc/prometheus/rules.yml
+  # prometheus:
+  #   image: prom/prometheus
+  #   container_name: prometheus
+  #   privileged: true
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./monitor/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+  #     # - ./monitor/prometheus/rules.yml:/etc/prometheus/rules.yml
 
-    restart: unless-stopped
-    command:
-      - --config.file=/etc/prometheus/prometheus.yml
-    healthcheck:
-      test: wget --quiet --tries=1 --spider http://localhost:9090 || exit
-      interval: 5s
-      timeout: 5s
-      retries: 5
-    networks:
-      - backnet  
+  #   restart: unless-stopped
+  #   command:
+  #     - --config.file=/etc/prometheus/prometheus.yml
+  #   healthcheck:
+  #     test: wget --quiet --tries=1 --spider http://localhost:9090 || exit
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 5
+  #   networks:
+  #     - backnet  
 
    
  
 
-  redis:
-    image: redis
-    container_name: redis
-    ports:
-      - "6379:6379"
-    restart: unless-stopped
-    networks:
-      - backnet  
+  # redis:
+  #   image: redis
+  #   container_name: redis
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
+  #   networks:
+  #     - backnet  
    
   
       
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    ports:
-      - "3030:3030"
-    restart: unless-stopped   
-    privileged: true
-    volumes:
-      - ./monitor/grafana/grafana.ini:/etc/grafana/grafana.ini 
-      - ./monitor/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
-      - grafana-data:/var/lib/grafana
-    networks:
-      - backnet  
+  # grafana:
+  #   image: grafana/grafana
+  #   container_name: grafana
+  #   ports:
+  #     - "3030:3030"
+  #   restart: unless-stopped   
+  #   privileged: true
+  #   volumes:
+  #     - ./monitor/grafana/grafana.ini:/etc/grafana/grafana.ini 
+  #     - ./monitor/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
+  #     - grafana-data:/var/lib/grafana
+  #   networks:
+  #     - backnet  
  
 
-  dme:
-    image: quaide/dem
-    privileged: true
-    volumes:
-      - ./monitor/dme/conf.yml:/app/conf.yml    
-      - /var/run/docker.sock:/var/run/docker.sock
+  # dme:
+  #   image: quaide/dem
+  #   privileged: true
+  #   volumes:
+  #     - ./monitor/dme/conf.yml:/app/conf.yml    
+  #     - /var/run/docker.sock:/var/run/docker.sock
   
 
   # nginx:
