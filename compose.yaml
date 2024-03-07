@@ -3,7 +3,7 @@ version: '3'
 services:
   
   admin:
-    image: jmiranda0521/regate-admin:2.4
+    image: jmiranda0521/regate-admin:2.5
     container_name: admin
     restart: unless-stopped
     ports:
@@ -20,7 +20,7 @@ services:
       - backnet 
   regate:
     container_name: regate
-    image: jmiranda0521/r_backend:1.9
+    image: jmiranda0521/r_backend:2.0
     command: /bin/sh -c "/home/app/engine && chmod +x /home/app/.bin/webp/cwebp"
     restart: unless-stopped
     ports:
